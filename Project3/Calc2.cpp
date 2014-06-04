@@ -153,28 +153,27 @@ error calc(op* opr)
 			num1 = numstack.top();
 			numstack.pop();
 		}
-		cout << endl;
 		switch (opr->token)
 		{
 		case '+':
-			cout << num1 << "+" << num2 << "=" << (num1 + num2) << endl;
+//			cout << num1 << "+" << num2 << "=" << (num1 + num2) << endl;
 			numstack.push(num1 + num2);
 			return OK;
 		case '-':
-			cout << num1 << "-" << num2 << "=" << (num1 - num2) << endl;
+//			cout << num1 << "-" << num2 << "=" << (num1 - num2) << endl;
 			numstack.push(num1 - num2);
 			return OK;
 		case '*':
-			cout << num1 << "*" << num2 << "=" << (num1 * num2) << endl;
+//			cout << num1 << "*" << num2 << "=" << (num1 * num2) << endl;
 			numstack.push(num1 * num2);
 			return OK;
 		case '/':
-			cout << num1 << "/" << num2 << "=" << (num1 / num2) << endl;
+//			cout << num1 << "/" << num2 << "=" << (num1 / num2) << endl;
 			numstack.push(num1 / num2);
 			return OK;
 		case '^':
 			ans = pow(num1, num2);
-			cout << num1 << "^" << num2 << "=" << ans << endl;
+//			cout << num1 << "^" << num2 << "=" << ans << endl;
 			numstack.push(ans);
 			return OK;
 		default:
@@ -234,6 +233,7 @@ void main()
 	cout << "利用可能な演算子は +, -, *, /, ^, ! (,) です。" << endl;
 	cout << "数式を入力してください。" << endl;
 	cin >> str1;
+
 	for (int i = 0; i < str1.length(); i++)
 	{
 		char token = str1[i];
@@ -305,21 +305,10 @@ void main()
 		e = CALC_ERROR;
 	}
 	dispError(e);
-	cout << "End" << endl;
+	cout << "Finish" << endl;
+	getchar();
 	while (1)
 	{
 		if (getchar()) break;
 	}
 }
-
-//error parenthesis()//　）が来た　ではなくて、（）が揃ったら閉じてよし 中の演算子を回収するには・・・
-//{
-//	op* op2 = opstack.top();
-//
-//	while (op2->type != OPEN)
-//	{
-//		opstack.pop();
-//		op* op1 = opstack.top();
-//		compare(op1, op2);
-//	}
-//}
