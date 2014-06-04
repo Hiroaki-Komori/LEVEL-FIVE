@@ -298,7 +298,8 @@ error compare(op* op2)
 	if (!opstack.empty() && opstack.top()->type == OPEN && op2->type == CLOSE)//Š‡ŒÊ‚Ì’†‚ª‚Ü‚Æ‚Ü‚Á‚½‚ç
 	{
 		opstack.pop();
-		if (opstack.top()->type == FUNC)
+
+		if (!opstack.empty() &&opstack.top()->type == FUNC)
 		{
 			funcCalc(opstack.top()->func);
 			opstack.pop();
